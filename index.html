@@ -13,15 +13,191 @@
   <!-- مكتبة الاحتفال والتأثيرات -->
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
   
-  <!-- ملف CSS -->
-  <link rel="stylesheet" href="style.css">
+  <style>
+    :root {
+      --bg-deep: #050505;
+      --card-glass: rgba(18, 18, 22, 0.78);
+      --red-gold: linear-gradient(135deg, #ff4d6d, #d4af37);
+      --accent-gold: #d4af37;
+      --accent-red: #ff2a54;
+      --text-main: #ffffff;
+      --text-sub: #e2e2e2;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--bg-deep);
+      color: var(--text-main);
+      font-family: 'Amiri', serif;
+      overflow-x: hidden;
+    }
+
+    #stars-canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    section {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 40px 20px;
+      position: relative;
+      z-index: 2;
+      text-align: center;
+    }
+
+    h1, h2 {
+      font-family: 'Reem Kufi', sans-serif;
+      color: var(--accent-gold);
+      margin-bottom: 20px;
+      font-size: 2.5rem;
+      text-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
+    }
+
+    .deep-text {
+      font-size: 1.35rem;
+      color: var(--text-sub);
+      max-width: 680px;
+      line-height: 2.1;
+      margin: 0 auto 25px;
+      text-shadow: 0 1px 3px rgba(0,0,0,0.8);
+    }
+
+    .glass-box {
+      background: var(--card-glass);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 25px;
+      padding: 45px 30px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.85), 0 0 30px rgba(255, 42, 84, 0.15);
+      max-width: 800px;
+      width: 100%;
+      transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    .glass-box:hover {
+      transform: translateY(-8px) scale(1.01);
+      box-shadow: 0 25px 60px rgba(255, 42, 84, 0.25), 0 0 40px rgba(212, 175, 55, 0.2);
+      border-color: rgba(212, 175, 55, 0.35);
+    }
+
+    .img-container {
+      position: relative;
+      width: 260px;
+      height: 260px;
+      margin: 20px auto 30px;
+      border-radius: 50%;
+      padding: 7px;
+      background: var(--red-gold);
+      box-shadow: 0 0 35px rgba(255, 42, 84, 0.5);
+      animation: rotateGlow 6s linear infinite alternate;
+    }
+
+    .img-container.rectangle-img {
+      border-radius: 20px;
+      width: 280px;
+      height: 200px;
+    }
+
+    .img-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+      filter: brightness(1.05) contrast(1.05);
+    }
+
+    .img-container.rectangle-img img {
+      border-radius: 15px;
+    }
+
+    @keyframes rotateGlow {
+      0% { box-shadow: 0 0 25px rgba(255, 42, 84, 0.5); transform: rotate(0deg); }
+      100% { box-shadow: 0 0 50px rgba(212, 175, 55, 0.8); transform: rotate(5deg); }
+    }
+
+    .btn-fire {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 15px 42px;
+      font-family: 'Reem Kufi', sans-serif;
+      font-size: 1.25rem;
+      color: #fff;
+      background: linear-gradient(45deg, #ff2a54, #ff4d6d);
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      text-decoration: none;
+      box-shadow: 0 10px 25px rgba(255, 42, 84, 0.4);
+      transition: all 0.3s ease;
+    }
+
+    .btn-fire:hover {
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 0 15px 35px rgba(255, 42, 84, 0.8);
+      background: linear-gradient(45deg, #ff4d6d, #d4af37);
+    }
+
+    .poetry {
+      font-family: 'Aref Ruqaa', serif;
+      font-size: 1.65rem;
+      color: var(--accent-gold);
+      margin: 15px 0 20px;
+      line-height: 1.8;
+      text-shadow: 0 0 12px rgba(212, 175, 55, 0.3);
+    }
+
+    #melt-modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.92);
+      z-index: 999;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .modal-box {
+      border: 2px solid var(--accent-red);
+    }
+
+    .modal-title {
+      color: var(--accent-red);
+      font-size: 2.8rem;
+    }
+
+    @media (max-width: 600px) {
+      h1, h2 { font-size: 1.9rem; }
+      .deep-text { font-size: 1.15rem; }
+      .poetry { font-size: 1.35rem; }
+      .img-container { width: 210px; height: 210px; }
+      .img-container.rectangle-img { width: 240px; height: 170px; }
+    }
+  </style>
 </head>
 <body>
 
-  <!-- خلفية النجوم المتحركة -->
   <canvas id="stars-canvas"></canvas>
 
-  <!-- الواجهة الأولى: الانطباع الأول -->
   <section id="sec1">
     <div class="glass-box">
       <h1 style="font-size: 2.8rem;">توقف الزمان.. وظلتِ أنتِ ✨</h1>
@@ -32,7 +208,6 @@
     </div>
   </section>
 
-  <!-- الواجهة الثانية: سر العيون -->
   <section id="sec2">
     <div class="glass-box">
       <h2>سحرُ عينيكِ المربك 🔥</h2>
@@ -49,7 +224,6 @@
     </div>
   </section>
 
-  <!-- الواجهة الثالثة: جمالها الفتان -->
   <section id="sec3">
     <div class="glass-box">
       <h2>يا فِتْنَةَ العَيْنِ وَمَلاكَ الرُّوح</h2>
@@ -66,7 +240,6 @@
     </div>
   </section>
 
-  <!-- الواجهة الرابعة: الصورة المشتركة والكلام المذيب -->
   <section id="sec4">
     <div class="glass-box">
       <h2>حكايةٌ كُتِبَت بأحرفٍ من نور 🌹</h2>
@@ -80,7 +253,6 @@
     </div>
   </section>
 
-  <!-- الواجهة الخامسة: المفاجأة والتفاعل -->
   <section id="sec5">
     <div class="glass-box">
       <h2>هل تعرفين كم أنتِ غالية؟</h2>
@@ -91,7 +263,6 @@
     </div>
   </section>
 
-  <!-- نافذة النتيجة النهائية -->
   <div id="melt-modal">
     <div class="glass-box modal-box">
       <h1 class="modal-title">أنتِ كل حُبّي وحياتي! ❤️</h1>
@@ -102,92 +273,85 @@
     </div>
   </div>
 
-  <!-- ملف JS -->
-  <script src="script.js"></script>
+  <script>
+    const canvas = document.getElementById('stars-canvas');
+    const ctx = canvas.getContext('2d');
+    let stars = [];
+
+    function initCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    window.addEventListener('resize', initCanvas);
+    initCanvas();
+
+    class StarFixed {
+      constructor() {
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height;
+        this.size = Math.random() * 2.5 + 0.5;
+        this.speedY = Math.random() * -0.6 - 0.2;
+        this.alpha = Math.random();
+      }
+      update() {
+        this.y += this.speedY;
+        if (this.y < 0) {
+          this.y = canvas.height;
+          this.x = Math.random() * canvas.width;
+        }
+      }
+      draw() {
+        ctx.fillStyle = `rgba(255, 215, 0, ${this.alpha})`;
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fill();
+      }
+    }
+
+    stars = [];
+    for (let i = 0; i < 90; i++) {
+      stars.push(new StarFixed());
+    }
+
+    function animate() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      stars.forEach(s => {
+        s.update();
+        s.draw();
+      });
+      requestAnimationFrame(animate);
+    }
+    animate();
+
+    function meltHeart() {
+      let count = 200;
+      let defaults = { origin: { y: 0.7 } };
+
+      function fire(particleRatio, opts) {
+        confetti(Object.assign({}, defaults, opts, {
+          particleCount: Math.floor(count * particleRatio)
+        }));
+      }
+
+      fire(0.25, { spread: 26, startVelocity: 55, colors: ['#ff2a54', '#d4af37'] });
+      fire(0.2, { spread: 60, colors: ['#ffffff', '#ff4d6d'] });
+      fire(0.35, { spread: 100, decay: 0.91, scalar: 0.8 });
+      fire(0.1, { spread: 120, startVelocity: 25, decay: 0.92, colors: ['#ff2a54'] });
+
+      setTimeout(() => {
+        const modal = document.getElementById('melt-modal');
+        if (modal) {
+          modal.style.display = 'flex';
+        }
+      }, 400);
+    }
+
+    function closeMelt() {
+      const modal = document.getElementById('melt-modal');
+      if (modal) {
+        modal.style.display = 'none';
+      }
+    }
+  </script>
 </body>
 </html>
-
-/* 1. خلفية النجوم المتحركة والساحرة */
-const canvas = document.getElementById('stars-canvas');
-const ctx = canvas.getContext('2d');
-let stars = [];
-
-function initCanvas() {
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
-}
-window.addEventListener('resize', initCanvas);
-initCanvas();
-
-class Star {
-  constructor() {
-    this.x = Math.random() * canvas.width;
-    this.y = Math.random() * canvas.height;
-    this.size = Math.random() * 2.5 + 0.5;
-    this.speedY = Math.random() * -0.6 - 0.2;
-    this.alpha = Math.random();
-  }
-  update() {
-    this.y += this.speedY;
-    if (this.y < 0) {
-      this.y = canvas.height;
-      this.x = Math.random() * canvas.width;
-    }
-  }
-  draw() {
-    ctx.fillStyle = `rgba(255, 215, 0, ${this.alpha})`;
-    ctx.beginPath();
-    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-    ctx.fill();
-  }
-}
-
-for (let i = 0; i < 90; i++) {
-  stars.push(new Star());
-}
-
-function animate() {
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-  stars.forEach(s => {
-    s.update();
-    s.draw();
-  });
-  requestAnimationFrame(animate);
-}
-animate();
-
-
-/* 2. زر الضربة القاضية (إطلاق القلوب والمفرقعات وإظهار النافذة) */
-function meltHeart() {
-  let count = 200;
-  let defaults = { origin: { y: 0.7 } };
-
-  function fire(particleRatio, opts) {
-    confetti(Object.assign({}, defaults, opts, {
-      particleCount: Math.floor(count * particleRatio)
-    }));
-  }
-
-  // إطلاق ألوان نارية مميزة (أحمر وذهبي)
-  fire(0.25, { spread: 26, startVelocity: 55, colors: ['#ff2a54', '#d4af37'] });
-  fire(0.2, { spread: 60, colors: ['#ffffff', '#ff4d6d'] });
-  fire(0.35, { spread: 100, decay: 0.91, scalar: 0.8 });
-  fire(0.1, { spread: 120, startVelocity: 25, decay: 0.92, colors: ['#ff2a54'] });
-
-  // ظهور النافذة المنبثقة بعد جزء من الثانية
-  setTimeout(() => {
-    const modal = document.getElementById('melt-modal');
-    if (modal) {
-      modal.style.display = 'flex';
-    }
-  }, 400);
-}
-
-
-/* 3. إغلاق النافذة المنبثقة */
-function closeMelt() {
-  const modal = document.getElementById('melt-modal');
-  if (modal) {
-    modal.style.display = 'none';
-  }
-}

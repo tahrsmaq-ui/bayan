@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>لأنكِ الاستثناء الوحيد ✨</title>
+  <title>إليكِ أنتِ وحدكِ.. رغم كل شيء ✨</title>
   
   <!-- الخطوط العربية الفخمة -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,12 +12,12 @@
   
   <!-- مكتبة الاحتفال والتأثيرات -->
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
-  
+
   <style>
     :root {
-      --bg-deep: #050505;
-      --card-glass: rgba(18, 18, 22, 0.78);
-      --red-gold: linear-gradient(135deg, #ff4d6d, #d4af37);
+      --bg-deep: #080708;
+      --card-glass: rgba(20, 15, 20, 0.88);
+      --red-gold: linear-gradient(135deg, #ff2a54, #d4af37);
       --accent-gold: #d4af37;
       --accent-red: #ff2a54;
       --text-main: #ffffff;
@@ -25,143 +25,123 @@
     }
 
     * {
-      box-sizing: border-box;
-      margin: 0;
+      box-sizing: border-box !important;
+      margin: 0 !important;
       padding: 0;
       scroll-behavior: smooth;
     }
 
-    body {
-      background-color: var(--bg-deep);
-      color: var(--text-main);
-      font-family: 'Amiri', serif;
+    html, body {
+      background-color: var(--bg-deep) !important;
+      color: var(--text-main) !important;
+      font-family: 'Amiri', serif !important;
       overflow-x: hidden;
+      min-height: 100vh;
     }
 
+    /* خلفية النجوم المتحركة */
     #stars-canvas {
       position: fixed;
       top: 0;
       left: 0;
-      width: 100%;
-      height: 100%;
+      width: 100vw;
+      height: 100vh;
       pointer-events: none;
       z-index: 1;
     }
 
+    /* تقسيم الواجهات كـ Full Screen */
     section {
       min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      padding: 40px 20px;
+      display: flex !important;
+      flex-direction: column !important;
+      justify-content: center !important;
+      align-items: center !important;
+      padding: 50px 20px !important;
       position: relative;
       z-index: 2;
       text-align: center;
     }
 
     h1, h2 {
-      font-family: 'Reem Kufi', sans-serif;
-      color: var(--accent-gold);
-      margin-bottom: 20px;
-      font-size: 2.5rem;
-      text-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
+      font-family: 'Reem Kufi', sans-serif !important;
+      color: var(--accent-gold) !important;
+      margin-bottom: 20px !important;
+      font-size: 2.3rem !important;
+      text-shadow: 0 0 15px rgba(212, 175, 55, 0.4) !important;
     }
 
     .deep-text {
-      font-size: 1.35rem;
-      color: var(--text-sub);
-      max-width: 680px;
-      line-height: 2.1;
-      margin: 0 auto 25px;
-      text-shadow: 0 1px 3px rgba(0,0,0,0.8);
+      font-size: 1.3rem !important;
+      color: var(--text-sub) !important;
+      max-width: 700px;
+      line-height: 2.2 !important;
+      margin: 0 auto 20px !important;
     }
 
+    /* كرت الزجاج المظلم الفخم */
     .glass-box {
-      background: var(--card-glass);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      border-radius: 25px;
-      padding: 45px 30px;
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.85), 0 0 30px rgba(255, 42, 84, 0.15);
-      max-width: 800px;
-      width: 100%;
-      transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      background: var(--card-glass) !important;
+      backdrop-filter: blur(15px);
+      -webkit-backdrop-filter: blur(15px);
+      border: 1px solid rgba(212, 175, 55, 0.25) !important;
+      border-radius: 25px !important;
+      padding: 40px 25px !important;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.9), 0 0 25px rgba(255, 42, 84, 0.2) !important;
+      max-width: 750px;
+      width: 90%;
+      margin: 0 auto;
     }
 
-    .glass-box:hover {
-      transform: translateY(-8px) scale(1.01);
-      box-shadow: 0 25px 60px rgba(255, 42, 84, 0.25), 0 0 40px rgba(212, 175, 55, 0.2);
-      border-color: rgba(212, 175, 55, 0.35);
-    }
-
+    /* إطار الصور الدائري المضيء */
     .img-container {
       position: relative;
-      width: 260px;
-      height: 260px;
-      margin: 20px auto 30px;
-      border-radius: 50%;
-      padding: 7px;
+      width: 240px;
+      height: 240px;
+      margin: 20px auto 25px !important;
+      border-radius: 50% !important;
+      padding: 6px;
       background: var(--red-gold);
-      box-shadow: 0 0 35px rgba(255, 42, 84, 0.5);
-      animation: rotateGlow 6s linear infinite alternate;
-    }
-
-    .img-container.rectangle-img {
-      border-radius: 20px;
-      width: 280px;
-      height: 200px;
+      box-shadow: 0 0 30px rgba(255, 42, 84, 0.6);
     }
 
     .img-container img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      border-radius: 50%;
-      filter: brightness(1.05) contrast(1.05);
+      border-radius: 50% !important;
     }
 
-    .img-container.rectangle-img img {
-      border-radius: 15px;
-    }
-
-    @keyframes rotateGlow {
-      0% { box-shadow: 0 0 25px rgba(255, 42, 84, 0.5); transform: rotate(0deg); }
-      100% { box-shadow: 0 0 50px rgba(212, 175, 55, 0.8); transform: rotate(5deg); }
-    }
-
+    /* الأزرار النارية */
     .btn-fire {
-      display: inline-block;
-      margin-top: 15px;
-      padding: 15px 42px;
-      font-family: 'Reem Kufi', sans-serif;
-      font-size: 1.25rem;
-      color: #fff;
-      background: linear-gradient(45deg, #ff2a54, #ff4d6d);
-      border: none;
-      border-radius: 50px;
+      display: inline-block !important;
+      margin-top: 15px !important;
+      padding: 14px 40px !important;
+      font-family: 'Reem Kufi', sans-serif !important;
+      font-size: 1.2rem !important;
+      color: #fff !important;
+      background: linear-gradient(45deg, #ff2a54, #ff4d6d) !important;
+      border: none !important;
+      border-radius: 50px !important;
       cursor: pointer;
-      text-decoration: none;
-      box-shadow: 0 10px 25px rgba(255, 42, 84, 0.4);
-      transition: all 0.3s ease;
+      text-decoration: none !important;
+      box-shadow: 0 8px 20px rgba(255, 42, 84, 0.5) !important;
+      transition: transform 0.3s ease;
     }
 
     .btn-fire:hover {
-      transform: translateY(-3px) scale(1.05);
-      box-shadow: 0 15px 35px rgba(255, 42, 84, 0.8);
-      background: linear-gradient(45deg, #ff4d6d, #d4af37);
+      transform: scale(1.05);
     }
 
     .poetry {
-      font-family: 'Aref Ruqaa', serif;
-      font-size: 1.65rem;
-      color: var(--accent-gold);
-      margin: 15px 0 20px;
-      line-height: 1.8;
-      text-shadow: 0 0 12px rgba(212, 175, 55, 0.3);
+      font-family: 'Aref Ruqaa', serif !important;
+      font-size: 1.55rem !important;
+      color: var(--accent-gold) !important;
+      margin: 15px 0 20px !important;
+      line-height: 1.8 !important;
     }
 
+    /* النافذة المنبثقة Modal */
     #melt-modal {
       display: none;
       position: fixed;
@@ -169,48 +149,41 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(0, 0, 0, 0.92);
-      z-index: 999;
+      background: rgba(0, 0, 0, 0.95);
+      z-index: 9999;
       justify-content: center;
       align-items: center;
       padding: 20px;
     }
 
-    .modal-box {
-      border: 2px solid var(--accent-red);
-    }
-
-    .modal-title {
-      color: var(--accent-red);
-      font-size: 2.8rem;
-    }
-
     @media (max-width: 600px) {
-      h1, h2 { font-size: 1.9rem; }
-      .deep-text { font-size: 1.15rem; }
-      .poetry { font-size: 1.35rem; }
-      .img-container { width: 210px; height: 210px; }
-      .img-container.rectangle-img { width: 240px; height: 170px; }
+      h1, h2 { font-size: 1.7rem !important; }
+      .deep-text { font-size: 1.1rem !important; }
+      .poetry { font-size: 1.25rem !important; }
+      .img-container { width: 190px; height: 190px; }
     }
   </style>
 </head>
 <body>
 
+  <!-- خلفية النجوم -->
   <canvas id="stars-canvas"></canvas>
 
+  <!-- الواجهة الأولى: مرور السنين والحب الباقي -->
   <section id="sec1">
     <div class="glass-box">
-      <h1 style="font-size: 2.8rem;">توقف الزمان.. وظلتِ أنتِ ✨</h1>
+      <h1 style="font-size: 2.6rem !important;">رغم مرور السنين.. ما زلتُ أحبكِ ✨</h1>
       <p class="deep-text">
-        هناك جمالٌ يمرُّ عابراً على هذا العالم.. وهناك أنتِ! جمالٌ أوجدهُ الله ليكون استثناءً لا يُكرره القَدَر، وُجدتِ لتكوني البداية والنهاية لكل شيء جميل.
+        مرت الأيام، وتبدلت تفاصيل كثيرة، وربما اختارت الحياة طرقاً غير طرقي.. لكن شيئاً واحداً في صدري رفض أن يتغير: حبّكِ أنتِ. بقيتِ الساكنة في عروقي رغم كل غياب.
       </p>
-      <a href="#sec2" class="btn-fire">ادخلي إلى عوالم سحركِ 👈</a>
+      <a href="#sec2" class="btn-fire">تابعي الحكاية 👈</a>
     </div>
   </section>
 
+  <!-- الواجهة الثانية: سحر العيون (`eyes.jpg`) -->
   <section id="sec2">
     <div class="glass-box">
-      <h2>سحرُ عينيكِ المربك 🔥</h2>
+      <h2>سحرُ عيناكِ الذي لا يُنسى 🔥</h2>
       <div class="img-container">
         <img src="eyes.jpg" alt="عينيكِ">
       </div>
@@ -218,58 +191,48 @@
         "وَفي عَيْنَيْكِ بَحْرٌ لا حُدودَ لَهُ.. يُغْرِقُ مَنْ نَظَرَ، وَلا يَنْجُو مَنْ أَبْحَر"
       </div>
       <p class="deep-text">
-        في عيناكِ لغةٌ لا تفهمها إلا روحي.. كلما نظرتُ إليهما نَسيتُ كبريائي، وضِعتُ في بحرٍ من الحنان لا أريدُ الخروج منه أبداً.
+        حتى وإن التفتت عيناكِ يوماً لغيري، ستبقى تلك النظرة في عيملكِ هي الملجأ الوحيد لروحي. أعشقكِ بعناد، وبحبٍّ يرفض السقوط أمام قسوة الأيام.
       </p>
-      <a href="#sec3" class="btn-fire">تأملي جمالكِ أكثر ❤️</a>
+      <a href="#sec3" class="btn-fire">تأملي صورتكِ ❤️</a>
     </div>
   </section>
 
+  <!-- الواجهة الثالثة: صورتها الكاملة (`her.jpg`) -->
   <section id="sec3">
     <div class="glass-box">
-      <h2>يا فِتْنَةَ العَيْنِ وَمَلاكَ الرُّوح</h2>
+      <h2>يا فِتْنَةَ القَلْبِ.. وإن أحببتِ غيري</h2>
       <div class="img-container">
         <img src="her.jpg" alt="جمالكِ">
       </div>
       <div class="poetry">
-        "كأنّ الحُسنَ لَمْ يُخْلَقْ لِغَيْرِكِ.. وَكأنّ القَلْبَ لم ينبض إلا بحبّكِ"
+        "كأنّ الحُسنَ لَمْ يُخْلَقْ لِغَيْرِكِ.. وَكأنّ القَلْبَ لم يعرف سِواكِ وطناً"
       </div>
       <p class="deep-text">
-        أنتِ لستِ مجرد حبيبة.. أنتِ الملاذ والأمان، أنتِ القصيدة التي يعجز الشعراء عن كتابتها، والسر الجميل الذي أخبئه في أعمق نقطة بقلبي.
+        أعلم أنكِ قد تحبين غيري، وأن الأقدار ربما جمعتكِ بسواي.. لكنني لستُ هنا لأنافس أحداً أو أفرض نفسي، أنا هنا فقط لأخبركِ بصدقٍ مطلق: أنا أحببتكِ بقلبٍ لا يعرف الكره، حبّاً طاهراً يعيش في الخفاء والعلن، ويكفيه فخراً أنكِ كنتِ أجمَل ما عرفه قلبي.
       </p>
-      <a href="#sec4" class="btn-fire">رسالة من الروح 📜</a>
+      <a href="#sec4" class="btn-fire">الكلمة الأخير لقلبكِ 🎁</a>
     </div>
   </section>
 
+  <!-- الواجهة الرابعة: زر الضربة القاضية -->
   <section id="sec4">
     <div class="glass-box">
-      <h2>حكايةٌ كُتِبَت بأحرفٍ من نور 🌹</h2>
-      <div class="img-container rectangle-img">
-        <img src="us.jpg" alt="ذكرياتنا">
-      </div>
-      <p class="deep-text" style="font-size: 1.35rem; line-height: 2.3;">
-        مهما دارت الأيام وتغير العالم حولنا، يبقى موطنكِ المفضل داخل قلبي محفوظاً لا يمسّه زمان. أنتِ الاختيار الصائب وسط كل هذه الفوضى، وأنتِ البداية التي لا تنتهي.
-      </p>
-      <a href="#sec5" class="btn-fire">الخطوة الخاتمة 🎁</a>
-    </div>
-  </section>
-
-  <section id="sec5">
-    <div class="glass-box">
-      <h2>هل تعرفين كم أنتِ غالية؟</h2>
+      <h2>اعترافٌ أخير.. قبل أن أمضي</h2>
       <p class="deep-text">
-        اضغطي هنا لتستلمي المفتاح الأبدي لقلبٍ لم يعشق أحداً غيركِ...
+        اضغطي هنا لتعرفي كيف يبقى قلب رجلٍ عاهدكِ على الحب إلى الأبد...
       </p>
-      <button class="btn-fire" onclick="meltHeart()" style="font-size: 1.5rem; padding: 18px 50px;">اضغطي لقلبي ❤️</button>
+      <button class="btn-fire" onclick="meltHeart()" style="font-size: 1.4rem !important; padding: 16px 45px !important;">اضغطي لقلبي ❤️</button>
     </div>
   </section>
 
+  <!-- نافذة النتيجة المذيبة للقلب -->
   <div id="melt-modal">
-    <div class="glass-box modal-box">
-      <h1 class="modal-title">أنتِ كل حُبّي وحياتي! ❤️</h1>
-      <p class="deep-text" style="font-size: 1.5rem; color: #fff; margin-top: 20px; line-height: 2.2;">
-        لو كان العشق يُقاس بالكلمات لكتبتُ لكِ دواوين لا تنتهي.. لكن حُبّي لكِ أكبر من أن تحويه السطور، أنتِ روحي التي أتنفس بها ونبضي الذي لا يتوقف!
+    <div class="glass-box" style="border: 2px solid var(--accent-red) !important;">
+      <h1 style="color: var(--accent-red) !important; font-size: 2.4rem !important;">سأظل أحبكِ.. مهما كانت الظروف! ❤️</h1>
+      <p class="deep-text" style="font-size: 1.3rem !important; color: #fff !important; margin-top: 20px !important;">
+        ليكن من تكوني معه.. وليختر قلبكِ من يختار، سيبقى اسمكِ محفوراً في أدعية ليلي، وسيبقى حبي لكِ صادقاً نقياً لا يلوثه غياب ولا يغيره جفاء. عشتِ في قلبي، وستبقين فيه أبد الدهر.
       </p>
-      <button class="btn-fire" onclick="closeMelt()" style="margin-top: 25px;">أحبكِ دائماً وأبداً 🌹</button>
+      <button class="btn-fire" onclick="closeMelt()" style="margin-top: 20px !important;">تذكري أنني أحببتكِ بصدق 🌹</button>
     </div>
   </div>
 
@@ -285,12 +248,12 @@
     window.addEventListener('resize', initCanvas);
     initCanvas();
 
-    class StarFixed {
+    class Star {
       constructor() {
         this.x = Math.random() * canvas.width;
         this.y = Math.random() * canvas.height;
-        this.size = Math.random() * 2.5 + 0.5;
-        this.speedY = Math.random() * -0.6 - 0.2;
+        this.size = Math.random() * 2.2 + 0.5;
+        this.speedY = Math.random() * -0.5 - 0.2;
         this.alpha = Math.random();
       }
       update() {
@@ -301,16 +264,15 @@
         }
       }
       draw() {
-        ctx.fillStyle = `rgba(255, 215, 0, ${this.alpha})`;
+        ctx.fillStyle = `rgba(212, 175, 55, ${this.alpha})`;
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
         ctx.fill();
       }
     }
 
-    stars = [];
-    for (let i = 0; i < 90; i++) {
-      stars.push(new StarFixed());
+    for (let i = 0; i < 80; i++) {
+      stars.push(new Star());
     }
 
     function animate() {
@@ -324,33 +286,16 @@
     animate();
 
     function meltHeart() {
-      let count = 200;
-      let defaults = { origin: { y: 0.7 } };
-
-      function fire(particleRatio, opts) {
-        confetti(Object.assign({}, defaults, opts, {
-          particleCount: Math.floor(count * particleRatio)
-        }));
+      if (typeof confetti === 'function') {
+        confetti({ particleCount: 150, spread: 80, origin: { y: 0.6 } });
       }
-
-      fire(0.25, { spread: 26, startVelocity: 55, colors: ['#ff2a54', '#d4af37'] });
-      fire(0.2, { spread: 60, colors: ['#ffffff', '#ff4d6d'] });
-      fire(0.35, { spread: 100, decay: 0.91, scalar: 0.8 });
-      fire(0.1, { spread: 120, startVelocity: 25, decay: 0.92, colors: ['#ff2a54'] });
-
       setTimeout(() => {
-        const modal = document.getElementById('melt-modal');
-        if (modal) {
-          modal.style.display = 'flex';
-        }
-      }, 400);
+        document.getElementById('melt-modal').style.display = 'flex';
+      }, 300);
     }
 
     function closeMelt() {
-      const modal = document.getElementById('melt-modal');
-      if (modal) {
-        modal.style.display = 'none';
-      }
+      document.getElementById('melt-modal').style.display = 'none';
     }
   </script>
 </body>

@@ -3,250 +3,191 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>zouze ✨</title>
-  <style>
-    :root {
-      --primary-glow: #e11d48;
-      --secondary-glow: #8b5cf6;
-      --bg-dark: #07090e;
-      --card-bg: rgba(255, 255, 255, 0.05);
-      --card-border: rgba(255, 255, 255, 0.12);
-      --text-main: #ffffff;
-      --text-sub: #fda4af;
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    }
-
-    body {
-      background-color: var(--bg-dark);
-      background-image: 
-        radial-gradient(circle at 20% 20%, rgba(225, 29, 72, 0.25) 0%, transparent 50%),
-        radial-gradient(circle at 80% 80%, rgba(139, 92, 246, 0.25) 0%, transparent 50%);
-      color: var(--text-main);
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 1.5rem;
-    }
-
-    .main-card {
-      background: var(--card-bg);
-      border: 1px solid var(--card-border);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border-radius: 28px;
-      padding: 2.5rem 1.8rem;
-      max-width: 600px;
-      width: 100%;
-      text-align: center;
-      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7),
-                  0 0 30px rgba(225, 29, 72, 0.15);
-    }
-
-    .header-icon {
-      font-size: 2.5rem;
-      margin-bottom: 0.3rem;
-    }
-
-    h1 {
-      font-size: 2.2rem;
-      background: linear-gradient(135deg, #fff 30%, var(--text-sub));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      margin-bottom: 0.4rem;
-    }
-
-    .subtitle {
-      color: #94a3b8;
-      font-size: 0.95rem;
-      margin-bottom: 1.8rem;
-    }
-
-    /* حاوية الميديا (الصور والفيديو) */
-    .media-container {
-      border-radius: 20px;
-      overflow: hidden;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      background: rgba(0, 0, 0, 0.4);
-      min-height: 280px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 1.5rem;
-      box-shadow: inset 0 0 20px rgba(0,0,0,0.5);
-    }
-
-    .media-item {
-      display: none;
-      width: 100%;
-      animation: fadeIn 0.6s ease forwards;
-    }
-
-    .media-item.active {
-      display: block;
-    }
-
-    .media-item img, 
-    .media-item video {
-      width: 100%;
-      max-height: 350px;
-      object-fit: cover;
-      display: block;
-      border-radius: 18px;
-    }
-
-    /* صندوق الكلام الحلو */
-    .quote-display {
-      background: rgba(0, 0, 0, 0.25);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 20px;
-      padding: 1.8rem 1.2rem;
-      min-height: 120px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 1.8rem;
-    }
-
-    .quote-text {
-      font-size: 1.25rem;
-      line-height: 1.8;
-      color: #ffe4e6;
-      font-weight: 500;
-      animation: fadeIn 0.6s ease forwards;
-    }
-
-    /* الأزرار التفاعلية */
-    .nav-buttons {
-      display: flex;
-      gap: 10px;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-
-    .nav-btn {
-      background: rgba(255, 255, 255, 0.08);
-      border: 1px solid var(--card-border);
-      color: var(--text-main);
-      padding: 0.8rem 1.4rem;
-      border-radius: 50px;
-      cursor: pointer;
-      font-size: 0.92rem;
-      font-weight: 600;
-      transition: all 0.3s ease;
-    }
-
-    .nav-btn:hover {
-      background: rgba(225, 29, 72, 0.25);
-      border-color: var(--primary-glow);
-      transform: translateY(-2px);
-    }
-
-    .nav-btn.active {
-      background: linear-gradient(135deg, #e11d48, #8b5cf6);
-      border-color: transparent;
-      box-shadow: 0 0 20px rgba(225, 29, 72, 0.4);
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(8px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    @media (max-width: 480px) {
-      .main-card { padding: 1.8rem 1rem; }
-      h1 { font-size: 1.8rem; }
-      .quote-text { font-size: 1.1rem; }
-      .nav-btn { padding: 0.65rem 1rem; font-size: 0.85rem; }
-    }
-  </style>
+  <title>لأنكِ الاستثناء الوحيد ✨</title>
+  
+  <!-- الخطوط العربية الفخمة -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Reem+Kufi:wght@600;700&family=Aref+Ruqaa:wght@400;700&display=swap" rel="stylesheet">
+  
+  <!-- مكتبة الاحتفال والتأثيرات -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  
+  <!-- ملف CSS -->
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <div class="main-card">
-    <div class="header-icon">✨</div>
-    <h1>غزل</h1>
-    <p class="subtitle">كلمات وصور صُممت لعينيكِ خصيصاً</p>
+  <!-- خلفية النجوم المتحركة -->
+  <canvas id="stars-canvas"></canvas>
 
-    <!-- معرض عرض الصور والفيديو -->
-    <div class="media-container">
-      <!-- الصورة الأولى -->
-      <div class="media-item active">
-        <img src="1.png" alt="الصورة الأولى">
-      </div>
-      
-      <!-- الصورة الثانية -->
-      <div class="media-item">
-        <img src="2.png" alt="الصورة الثانية">
-      </div>
-      
-      <!-- الفيديو -->
-      <div class="media-item">
-        <video id="myVideo" controls>
-          <source src="3.mp4" type="video/mp4">
-          المتصفح لا يدعم تشغيل الفيديو.
-        </video>
-      </div>
+  <!-- الواجهة الأولى: الانطباع الأول -->
+  <section id="sec1">
+    <div class="glass-box">
+      <h1 style="font-size: 2.8rem;">توقف الزمان.. وظلتِ أنتِ ✨</h1>
+      <p class="deep-text">
+        هناك جمالٌ يمرُّ عابراً على هذا العالم.. وهناك أنتِ! جمالٌ أوجدهُ الله ليكون استثناءً لا يُكرره القَدَر، وُجدتِ لتكوني البداية والنهاية لكل شيء جميل.
+      </p>
+      <a href="#sec2" class="btn-fire">ادخلي إلى عوالم سحركِ 👈</a>
     </div>
+  </section>
 
-    <!-- صندوق الكلام الحلو -->
-    <div class="quote-display">
-      <p class="quote-text" id="quoteText"></p>
+  <!-- الواجهة الثانية: سر العيون -->
+  <section id="sec2">
+    <div class="glass-box">
+      <h2>سحرُ عينيكِ المربك 🔥</h2>
+      <div class="img-container">
+        <img src="eyes.jpg" alt="عينيكِ">
+      </div>
+      <div class="poetry">
+        "وَفي عَيْنَيْكِ بَحْرٌ لا حُدودَ لَهُ.. يُغْرِقُ مَنْ نَظَرَ، وَلا يَنْجُو مَنْ أَبْحَر"
+      </div>
+      <p class="deep-text">
+        في عيناكِ لغةٌ لا تفهمها إلا روحي.. كلما نظرتُ إليهما نَسيتُ كبريائي، وضِعتُ في بحرٍ من الحنان لا أريدُ الخروج منه أبداً.
+      </p>
+      <a href="#sec3" class="btn-fire">تأملي جمالكِ أكثر ❤️</a>
     </div>
+  </section>
 
-    <!-- الأزرار التفاعلية -->
-    <div class="nav-buttons">
-      <button class="nav-btn active" onclick="showTab(0)">حين يصبح البني قصيدة» 👁️</button>
-      <button class="nav-btn" onclick="showTab(1)">«العين التي لا يشبهها الوصف»  ✨</button>
-      <button class="nav-btn" onclick="showTab(2)">— «مو كل جمال بينحفظ بصورة» 🎥</button>
+  <!-- الواجهة الثالثة: جمالها الفتان -->
+  <section id="sec3">
+    <div class="glass-box">
+      <h2>يا فِتْنَةَ العَيْنِ وَمَلاكَ الرُّوح</h2>
+      <div class="img-container">
+        <img src="her.jpg" alt="جمالكِ">
+      </div>
+      <div class="poetry">
+        "كأنّ الحُسنَ لَمْ يُخْلَقْ لِغَيْرِكِ.. وَكأنّ القَلْبَ لم ينبض إلا بحبّكِ"
+      </div>
+      <p class="deep-text">
+        أنتِ لستِ مجرد حبيبة.. أنتِ الملاذ والأمان، أنتِ القصيدة التي يعجز الشعراء عن كتابتها، والسر الجميل الذي أخبئه في أعمق نقطة بقلبي.
+      </p>
+      <a href="#sec4" class="btn-fire">رسالة من الروح 📜</a>
+    </div>
+  </section>
+
+  <!-- الواجهة الرابعة: الصورة المشتركة والكلام المذيب -->
+  <section id="sec4">
+    <div class="glass-box">
+      <h2>حكايةٌ كُتِبَت بأحرفٍ من نور 🌹</h2>
+      <div class="img-container rectangle-img">
+        <img src="us.jpg" alt="ذكرياتنا">
+      </div>
+      <p class="deep-text" style="font-size: 1.35rem; line-height: 2.3;">
+        مهما دارت الأيام وتغير العالم حولنا، يبقى موطنكِ المفضل داخل قلبي محفوظاً لا يمسّه زمان. أنتِ الاختيار الصائب وسط كل هذه الفوضى، وأنتِ البداية التي لا تنتهي.
+      </p>
+      <a href="#sec5" class="btn-fire">الخطوة الخاتمة 🎁</a>
+    </div>
+  </section>
+
+  <!-- الواجهة الخامسة: المفاجأة والتفاعل -->
+  <section id="sec5">
+    <div class="glass-box">
+      <h2>هل تعرفين كم أنتِ غالية؟</h2>
+      <p class="deep-text">
+        اضغطي هنا لتستلمي المفتاح الأبدي لقلبٍ لم يعشق أحداً غيركِ...
+      </p>
+      <button class="btn-fire" onclick="meltHeart()" style="font-size: 1.5rem; padding: 18px 50px;">اضغطي لقلبي ❤️</button>
+    </div>
+  </section>
+
+  <!-- نافذة النتيجة النهائية -->
+  <div id="melt-modal">
+    <div class="glass-box modal-box">
+      <h1 class="modal-title">أنتِ كل حُبّي وحياتي! ❤️</h1>
+      <p class="deep-text" style="font-size: 1.5rem; color: #fff; margin-top: 20px; line-height: 2.2;">
+        لو كان العشق يُقاس بالكلمات لكتبتُ لكِ دواوين لا تنتهي.. لكن حُبّي لكِ أكبر من أن تحويه السطور، أنتِ روحي التي أتنفس بها ونبضي الذي لا يتوقف!
+      </p>
+      <button class="btn-fire" onclick="closeMelt()" style="margin-top: 25px;">أحبكِ دائماً وأبداً 🌹</button>
     </div>
   </div>
 
-  <script>
-    // الكلام الحلو المخصص لكل خيار
-const quotes = [
-  "🤎 الصورة الأولى — «حين يصبح البني قصيدة»\n\nلا أعرف كيف يمكن لعين أن تكون بهذا الهدوء، وفي الوقت نفسه يكون فيها كل هذا الضجيج من الجمال…\n\nهذه ليست عينًا بنية بالمعنى العادي للكلمة، لأن البني أحيانًا يكون مجرد لون، أما هنا فالبني يبدو وكأنه حكاية كاملة. لون دافئ، عميق، فيه شيء من لون القهوة حين تكون آخر الليل، وشيء من لون الخريف حين تسقط الشمس على أوراقه، وشيء لا أعرف له اسمًا إلا أنه يجعل النظر إليها أطول مما ينبغي.\n\nالجميل فيها أنك كلما حاولت أن تصف لونها اكتشفت أن الوصف أصغر منها. تقول بني… وتشعر أنك ظلمتها. تقول عسلية… فتكتشف أن فيها درجات أغمق وأعمق. تحاول أن تقول إنها جميلة، وهذه أسهل كلمة وأفقرها في نفس الوقت، لأن الجمال فيها ليس مجرد شكل… الجمال في التفاصيل الصغيرة التي لا تنتبه لها من أول نظرة.\n\nحتى البؤبؤ في وسطها كأنه نقطة سوداء مرسومة بعناية داخل لوحة بنية، وحولها تلك الخطوط والتدرجات التي تجعل العين وكأنها مرسومة، لا أعرف إذا كانت الصورة ظلمتها أم أن الصورة لأول مرة عجزت عن نقل كل جمالها.\n\nأما الرموش… فهذه حكاية ثانية. طويلة، واضحة، وكأنها تعرف تمامًا أن مهمتها ليست فقط أن تحمي العين، بل أن تزيدها فتنة من غير أن تفعل شيئًا. وكل رمشة منها كأنها فاصلة صغيرة في جملة طويلة من الجمال.\n\nوأكثر شيء لفتني فيها أنها ليست من العيون التي تصرخ حتى تلفت الانتباه… بالعكس، هي هادئة جدًا، وهذا تحديدًا ما يجعلها خطيرة على الذاكرة. تمر عليها مرة، وبعدها تجد نفسك تتذكر لونها، تفاصيلها، انعكاس الضوء فيها… وكأن العين قالت لك شيئًا من دون أن تنطق بحرف.\n\nفي عيون جميلة… وفي عيون تجعل الواحد يتساءل: كيف اجتمعت كل هذه التفاصيل في مكان صغير كهذا؟\n\nوهذه العين تحديدًا من النوع الذي يجعل كلمة «جميلة» تبدو عادية جدًا أمامها. 🤎",
-
-  "🤎 الصورة الثانية — «العين التي لا يشبهها الوصف»\n\nوإذا كانت العين الأولى جميلة، فهذه تحتاج إلى قاموس جديد حتى يمكن الكلام عنها.\n\nأول شيء يأخذك إليها هو لونها… ذلك البني الذي لا يأتي بلون واحد، بل بدرجات كثيرة متداخلة، كأن الضوء كلما اقترب منها قرر أن يترك فيها لونًا جديدًا. من بعيد تبدو هادئة ودافئة، ومن قريب تظهر تفاصيل تجعلها مختلفة تمامًا.\n\nفيها شيء يشبه المساء… ليس المساء الحزين، بل المساء الذي تكون فيه السماء هادئة والمدينة ساكتة، وكل شيء حولك يأخذ لونًا أهدأ وأجمل. لونها من النوع الذي لا يحتاج إلى مبالغة حتى يكون ملفتًا، يكفي أن تنظر إليه قليلًا حتى تفهم لماذا العين يمكن أن تكون أجمل من ألف كلمة.\n\nوحتى انعكاس الضوء داخلها له حكاية. تلك اللمعة الصغيرة التي تظهر في البؤبؤ تبدو كأنها نجمة ضاعت عن السماء وقررت أن تسكن هناك. وكلما ظهر الضوء أكثر، ظهر اللون من حوله بطريقة أجمل، وكأن العين تعرف كيف تلتقط الضوء وتعيده بطريقة خاصة بها.\n\nوالرموش فوقها تزيد الموضوع سوءًا… لأنها تجعل العين تبدو وكأنها لوحة لها إطارها الخاص. طويلة، واضحة، ومتناسقة معها بشكل يجعل الواحد يحتار: هل جمال العين هو الذي جعل الرموش أجمل، أم أن الرموش هي التي أعطت العين كل هذا الحضور؟\n\nالغريب أن العين لا تحتاج إلى نظرة قوية حتى تكون ملفتة. حتى وهي ساكنة، فيها حضور. وحتى في صورة ثابتة، تشعر أن فيها شيئًا حيًا… شيئًا يجعلها مختلفة عن أي صورة عادية لعين جميلة.\n\nولو أردت اختصار كل هذا الكلام بكلمتين، سأقول: «بنيّة ساحرة».\n\nلكن حتى هالكلمتين ما بيكفّوا.\n\nلأن بعض العيون لا تُوصف… تُترك كما هي، ويُترك للذي يراها أن يحتار كيف يمكن لشيء بسيط مثل عينين أن يحمل كل هذا الجمال.\n\nوهذه واحدة من تلك العيون التي لا تحتاج أن تحاول حتى تُلفت النظر… يكفي أنها موجودة. 🤎",
-
-  "🤎 الفيديو — «مو كل جمال بينحفظ بصورة»\n\nفي صور ممكن تشوفها مرة وتكمل يومك عادي… وفي فيديوهات بتخليك توقف شوي، مو لأن فيها شي مبالغ فيه، بس لأن صاحبها عنده تفاصيل بتخلي النظر إلها إلو طعم تاني.\n\nوهالفيديو تحديدًا من النوع اللي ما بينحكى عنه بكلمة «حلو» وخلاص… لأنك لما تشوف العين وهي عم تتحرك، بتكتشف إن الصورة ما كانت معطيتك حقها كامل.\n\nالعين بالصورة ممكن تكون جميلة، بس بالفيديو إلها حضور مختلف… النظرة، الحركة، الرمش، وطريقة انعكاس الضوء عليها، كل تفصيل صغير بيخليها كأنها عم تحكي لحالها من دون ما تقول ولا كلمة.\n\nواللون البني فيها بالحركة بيطلع أجمل، كأنه مو لون ثابت، كأنه بيتغير مع كل زاوية وكل لمعة ضوء. مرة بيبين غامق وهادئ، ومرة بيطلع فيه دفء كأنه عسل ممزوج بلون القهوة، ومرة بتظهر التفاصيل اللي حوالي البؤبؤ وكأنها مرسومة بإيد فنان ما رضي يترك أي زاوية عادية.\n\nوحتى الرمش… يا لطيف على الرمش.بيجي على العين كأنه توقيع أخير على لوحة كاملة، وكل رمشة بتضيف عليها تفصيل جديد بدل ما تاخد منها شي.\n\nيمكن أجمل شي بالفيديو إنه بيبين إن هالجمال مو محتاج وقفة معينة ولا زاوية معينة ولا محاولة حتى يطلع حلو… هو موجود بالحركة العادية، بالنظرة العفوية، وبأبسط لحظة ممكنة.\n\nوفي شي غريب بهالعين… إنها ما بتحاول تلفت الانتباه، ومع هيك بتاخده كله. ما بتحتاج كلام كثير، لأن تفاصيلها لحالها عندها قدرة تحكي.\n\nولو بدي أوصف الفيديو كله بجملة وحدة، بقول:\n\nالصورة عرّفتني على جمال عيونك… بس الفيديو خلاني أفهم ليش عيونك ما بتنحفظ بصورة. 🤎"
-];
-    const mediaItems = document.querySelectorAll('.media-item');
-    const buttons = document.querySelectorAll('.nav-btn');
-    const quoteText = document.getElementById('quoteText');
-    const video = document.getElementById('myVideo');
-
-    function showTab(index) {
-      // إيقاف الفيديو عند الانتقال لزر آخر
-      if (index !== 2 && !video.paused) {
-        video.pause();
-      }
-
-      // تحديث شكل الأزرار
-      buttons.forEach(btn => btn.classList.remove('active'));
-      buttons[index].classList.add('active');
-
-      // تحديث الصورة / الفيديو
-      mediaItems.forEach(item => item.classList.remove('active'));
-      mediaItems[index].classList.add('active');
-
-      // تحديث النص مع تأثير حركة بسيط
-      quoteText.style.animation = 'none';
-      quoteText.offsetHeight; 
-      quoteText.style.animation = 'fadeIn 0.6s ease forwards';
-      quoteText.innerText = quotes[index];
-    }
-
-    // إظهار النص الأول فور التحميل
-    quoteText.innerText = quotes[0];
-  </script>
-
+  <!-- ملف JS -->
+  <script src="script.js"></script>
 </body>
 </html>
+
+/* 1. خلفية النجوم المتحركة والساحرة */
+const canvas = document.getElementById('stars-canvas');
+const ctx = canvas.getContext('2d');
+let stars = [];
+
+function initCanvas() {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+}
+window.addEventListener('resize', initCanvas);
+initCanvas();
+
+class Star {
+  constructor() {
+    this.x = Math.random() * canvas.width;
+    this.y = Math.random() * canvas.height;
+    this.size = Math.random() * 2.5 + 0.5;
+    this.speedY = Math.random() * -0.6 - 0.2;
+    this.alpha = Math.random();
+  }
+  update() {
+    this.y += this.speedY;
+    if (this.y < 0) {
+      this.y = canvas.height;
+      this.x = Math.random() * canvas.width;
+    }
+  }
+  draw() {
+    ctx.fillStyle = `rgba(255, 215, 0, ${this.alpha})`;
+    ctx.beginPath();
+    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+    ctx.fill();
+  }
+}
+
+for (let i = 0; i < 90; i++) {
+  stars.push(new Star());
+}
+
+function animate() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  stars.forEach(s => {
+    s.update();
+    s.draw();
+  });
+  requestAnimationFrame(animate);
+}
+animate();
+
+
+/* 2. زر الضربة القاضية (إطلاق القلوب والمفرقعات وإظهار النافذة) */
+function meltHeart() {
+  let count = 200;
+  let defaults = { origin: { y: 0.7 } };
+
+  function fire(particleRatio, opts) {
+    confetti(Object.assign({}, defaults, opts, {
+      particleCount: Math.floor(count * particleRatio)
+    }));
+  }
+
+  // إطلاق ألوان نارية مميزة (أحمر وذهبي)
+  fire(0.25, { spread: 26, startVelocity: 55, colors: ['#ff2a54', '#d4af37'] });
+  fire(0.2, { spread: 60, colors: ['#ffffff', '#ff4d6d'] });
+  fire(0.35, { spread: 100, decay: 0.91, scalar: 0.8 });
+  fire(0.1, { spread: 120, startVelocity: 25, decay: 0.92, colors: ['#ff2a54'] });
+
+  // ظهور النافذة المنبثقة بعد جزء من الثانية
+  setTimeout(() => {
+    const modal = document.getElementById('melt-modal');
+    if (modal) {
+      modal.style.display = 'flex';
+    }
+  }, 400);
+}
+
+
+/* 3. إغلاق النافذة المنبثقة */
+function closeMelt() {
+  const modal = document.getElementById('melt-modal');
+  if (modal) {
+    modal.style.display = 'none';
+  }
+}
